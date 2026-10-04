@@ -50,9 +50,12 @@ function initContentBinding() {
   // Set resume urls
   const resumeLinks = document.querySelectorAll("#resume-nav-link, #resume-mobile-link");
   resumeLinks.forEach(link => {
+    link.setAttribute("download", "Atul_Pandey_CV.pdf");
     const currentHref = link.getAttribute("href");
-    if (!currentHref || currentHref === "#") {
-      link.href = data.profile.resumeUrl;
+    if (!currentHref || currentHref === "#" || currentHref.startsWith("/")) {
+      const isSubdir = window.location.pathname.includes("/work-experience/") || window.location.pathname.includes("/unreleased-projects/");
+      const resumeFile = (data.profile.resumeUrl || "Atul_Pandey_CV.pdf").replace(/^\//, "");
+      link.href = (isSubdir ? "../" : "") + resumeFile;
     }
   });
 
@@ -669,10 +672,13 @@ ${data.profile.bioParagraphs.join("\n\n")}`;
                 skills: data.skills.map(s => ({ category: s.category, items: s.items }))
               }, null, 2);
             } else if (filename === "resume.pdf") {
-              output = `Opening Resume PDF in browser...
-Link: <a href="${data.profile.resumeUrl}" target="_blank" style="color: #6366f1; text-decoration: underline;">${data.profile.resumeUrl}</a>`;
+              const isSubdir = window.location.pathname.includes("/work-experience/") || window.location.pathname.includes("/unreleased-projects/");
+              const resumeFile = (data.profile.resumeUrl || "Atul_Pandey_CV.pdf").replace(/^\//, "");
+              const resumeHref = (isSubdir ? "../" : "") + resumeFile;
+              output = `Opening Resume PDF...
+Link: <a href="${resumeHref}" download="Atul_Pandey_CV.pdf" target="_blank" style="color: #6366f1; text-decoration: underline;">Download Resume PDF</a>`;
               isHtml = true;
-              window.open(data.profile.resumeUrl, "_blank");
+              window.open(resumeHref, "_blank");
             } else {
               output = `cat: ${args[0]}: No such file or directory`;
               isError = true;

@@ -12,7 +12,7 @@ window.portfolioData = {
     ],
     avatarFront: "/images/dp/20251118_210825.png",
     avatarBack: "/images/dp/20251118_210825.png",
-    resumeUrl: "/Atul_Pandey_CV.pdf",
+    resumeUrl: "Atul_Pandey_CV.pdf",
     typedStrings: ["Senior Unity Developer", "4+ Years Experience", "Mobile & WebGL Developer", "Multiplayer Specialist"]
   },
 

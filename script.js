@@ -49,14 +49,11 @@ function initContentBinding() {
 
   // Set resume urls
   const resumeLinks = document.querySelectorAll("#resume-nav-link, #resume-mobile-link");
+  const isSubdir = window.location.pathname.includes("/work-experience/") || window.location.pathname.includes("/unreleased-projects/");
+  const resumeFile = (data.profile.resumeUrl || "Atul_Pandey_CV.pdf").replace(/^\//, "");
   resumeLinks.forEach(link => {
-    link.setAttribute("download", "Atul_Pandey_CV.pdf");
-    const currentHref = link.getAttribute("href");
-    if (!currentHref || currentHref === "#" || currentHref.startsWith("/")) {
-      const isSubdir = window.location.pathname.includes("/work-experience/") || window.location.pathname.includes("/unreleased-projects/");
-      const resumeFile = (data.profile.resumeUrl || "Atul_Pandey_CV.pdf").replace(/^\//, "");
-      link.href = (isSubdir ? "../" : "") + resumeFile;
-    }
+    link.setAttribute("download", resumeFile);
+    link.href = (isSubdir ? "../" : "") + resumeFile;
   });
 
   // Home Page Specific bindings

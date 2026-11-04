@@ -4,16 +4,17 @@ window.portfolioData = {
   profile: {
     name: "Atul Kumar Pandey",
     title: "Senior Unity Developer",
-    tagline: "Unity Developer · 4+ Years · Mobile · WebGL · Multiplayer",
+    tagline: "Senior Unity Developer | Mobile Multiplayer Games | C#, Android, iOS",
     location: "Ghaziabad, India",
     bioTitle: "About Me",
     bioParagraphs: [
-      "Unity developer with 4+ years building mobile and WebGL games in C#. Maintains Mystic Motors, a live multiplayer racing game (10K+ Google Play downloads) with Firebase, in-app purchases and a .NET game server; previously led a team of 6 developers on client projects."
+      "Senior Unity Developer with 4+ years building and shipping mobile games in C#. Primary developer on Mystic Motors, a live real-time multiplayer racing game on Google Play and the App Store with 10K+ downloads, working across gameplay, networking, Firebase, monetisation and mobile performance. Former Team Lead of 6 developers. Uses AI coding tools daily to deliver faster, and checks the results on real devices."
     ],
     avatarFront: "/images/dp/20251118_210825.png",
     avatarBack: "/images/dp/20251118_210825.png",
     resumeUrl: "Atul_Pandey_CV.pdf",
-    typedStrings: ["Senior Unity Developer", "4+ Years Experience", "Mobile & WebGL Developer", "Multiplayer Specialist"]
+    typedStrings: ["Atul Kumar Pandey", "a Senior Unity Developer"],
+    heroTags: ["Senior Unity Developer", "4+ Years Experience", "Mobile Multiplayer Games", "C#, Android, iOS"]
   },
 
   socials: {
@@ -28,7 +29,7 @@ window.portfolioData = {
     {
       title: "Mystic Motors",
       subtitle: "Android & iOS",
-      description: "Spell-based multiplayer racing game with real-time PvP, clans, chat and cosmetics. 10K+ downloads on Google Play.",
+      description: "Live multiplayer racer built in Unity 6 with URP, Firebase and a .NET server. 10K+ downloads on Google Play.",
       images: [
         "/images/mystic motors/Screenshot_20260707_221735.png",
         "/images/mystic motors/Screenshot_20260707_221739.png",
@@ -45,7 +46,7 @@ window.portfolioData = {
       ],
       engine: "Unity 3D",
       engineIcon: "/images/unity_logo.png",
-      tags: ["Unity 3D", "C#", "Firebase", ".NET Server", "AdMob"],
+      tags: ["Unity 6", "C#", "URP", "Firebase", ".NET"],
       playStore: "https://play.google.com/store/apps/details?id=com.tecventures.mysticmotors",
       appStore: "https://apps.apple.com/app/id6612030544",
       link: "https://play.google.com/store/apps/details?id=com.tecventures.mysticmotors",
@@ -54,7 +55,7 @@ window.portfolioData = {
     {
       title: "Adventure Trip: World Wonders",
       subtitle: "Google Play",
-      description: "Client project, built solo. Educational puzzle game across 20 world-wonder locations with 7 mini-puzzles; Firebase cloud save and FCM notifications.",
+      description: "Educational puzzle game across 20 world wonders, built solo for a client, with 7 mini-puzzles, Firebase cloud save and FCM notifications. 1K+ downloads on Google Play.",
       images: [
         "/images/adventure trip/1.webp",
         "/images/adventure trip/2.webp",
@@ -72,7 +73,7 @@ window.portfolioData = {
     {
       title: "Kitty Dash",
       subtitle: "Google Play",
-      description: "Client project, built solo. Endless runner with content loaded through local Addressables.",
+      description: "My own endless runner, built and published solo, with Addressables and AdMob ads.",
       images: [
         "/images/kitty dash/Screenshot_20260713_100206.png",
         "/images/kitty dash/Screenshot_20260713_100212.png",
@@ -88,13 +89,13 @@ window.portfolioData = {
       engineIcon: "/images/unity_logo.png",
       tags: ["Unity 3D", "C#", "Addressables", "AdMob"],
       isPortrait: true,
-      playStore: "https://play.google.com/store/apps/details?id=com.Point8Games.KittyDash",
-      link: "https://play.google.com/store/apps/details?id=com.Point8Games.KittyDash"
+      playStore: "https://play.google.com/store/apps/details?id=com.saturagames.kittydash&hl=en_IN",
+      link: "https://play.google.com/store/apps/details?id=com.saturagames.kittydash&hl=en_IN"
     },
     {
       title: "Slot Game",
       subtitle: "Live WebGL (Browser)",
-      description: "Original browser slot game demo: core game logic in C#, DOTween reel animations, UI built from Figma designs.",
+      description: "Browser slot game with reel logic in C#, DOTween animation and UI from Figma designs.",
       images: [
         "/images/slot game/1.png",
         "/images/slot game/2.png",
@@ -110,84 +111,68 @@ window.portfolioData = {
     }
   ],
 
-  laboratory: [],
-
   unreleased: [],
 
   experience: [
     {
-      company: "Tec Ventures",
+      company: "TEC Ventures Pty Ltd, Australia (Remote)",
       role: "Senior Unity Developer",
-      timeline: "Apr 2024 – Present",
+      timeline: "Mar 2025 – Present",
       bullets: [
-        "Develop and maintain Mystic Motors (Android and iOS), a live multiplayer racing game; ship feature updates after launch.",
-        "Fixed launch-period crashes and null-reference errors across successive updates using Crashlytics reports.",
-        "Specified, integrated and deployed a .NET game server (matchmaking, anti-cheat checks) hosted on DigitalOcean; tested APIs with Postman.",
-        "Implemented Google, Apple and guest sign-in (Firebase Auth), Firestore, FCM push notifications, Crashlytics, in-app purchases (Android, iOS) and AdMob ads.",
-        "Built game UI from Figma designs with DOTween animation.",
-        "Used Unity Profiler to trace frame spikes to string allocations, extra rendering and high draw-call counts, and optimised them."
+        "Took Mystic Motors, a spell-based 8-car multiplayer racer, through launch on Android and iOS and 8 App Store releases, with clans, chat, a garage and cosmetics.",
+        "Delivered a .NET dedicated game server over UDP (LiteNetLib) using AI-assisted coding: server-run bots, finish-order and spell validation, and basic speed and teleport checks. Connected it to the Unity client, tested it, and deployed sandbox and production on DigitalOcean.",
+        "Built Firebase features: Google, Apple and guest sign-in, Firestore, Realtime Database lobbies and matchmaking, Cloud Functions, App Check, FCM notifications and Crashlytics.",
+        "Built the original clans and social system with Socket.IO and Node.js, on both the Unity and server sides.",
+        "Integrated in-app purchases on Android and iOS, AdMob ads, shop offers and crate rewards.",
+        "Reduced overheating and frame drops on phones: cut draw calls from about 900 to 300-500, added LODs, skipped distant and off-screen objects, replaced heavy particles, and warmed up shaders during loading to stop spell hitches.",
+        "Developed car physics, bot racing AI, the spell system, VFX and custom shaders, plus baked lighting and collision work on race maps in URP.",
+        "Fixed launch crashes using Crashlytics and device logs, including an iOS-only crash and a 40-second iOS login hang.",
+        "Built game UI from Figma designs with DOTween, and custom Unity Editor tools for map and content work."
       ]
     },
     {
       company: "Abhiwan Technology Pvt Ltd",
-      role: "Unity Developer / Team Lead",
-      timeline: "Oct 2022 – Mar 2024",
+      role: "Unity Developer, promoted to Team Lead",
+      timeline: "Oct 2022 – Mar 2025",
       bullets: [
-        "Promoted to Team Lead; led a team of 6 developers for about 6 months on client Unity projects.",
-        "Built Unity games and apps for clients across mobile and PC.",
-        "Classroom Metaverse: virtual classroom where students and teachers join together, built with Photon and Agora Voice SDK."
+        "Led a team of 6 developers for about 6 months on client Unity projects across mobile and PC.",
+        "Teen Patti: built the Unity client and game logic for a real-time card game using Socket.IO with a Node.js backend; tested 10 rooms of 6 players at the same time and delivered it to the client.",
+        "Multiplayer virtual classroom: students and teachers join one shared room, built with Photon PUN2 and Agora voice chat.",
+        "Adventure Trip: World Wonders (Google Play, 1K+ downloads): built solo for a client, with 20 locations, 7 mini-puzzles, Firebase cloud save and FCM notifications."
       ]
     }
   ],
 
   skills: [
     {
-      category: "Engine & Language",
+      category: "Unity",
       icon: "🎮",
       color: "#9d7cd8",
-      items: ["Unity 3D / 2D", "C# (primary)", "C++", "Unity WebGL", "Unity Addressables"]
+      items: ["Unity 6", "2D/3D", "C#", "URP", "Shader Graph", "VFX", "Addressables", "Unity Profiler", "Editor scripting", "WebGL"]
     },
     {
-      category: "Multiplayer & Network",
+      category: "Multiplayer",
       icon: "🌐",
       color: "#38bdf8",
-      items: [".NET Game Server", "Photon PUN2", "WebSocket", "Agora Voice SDK"]
+      items: ["UDP (LiteNetLib)", "Photon PUN2", "Socket.IO", "Agora Voice SDK"]
     },
     {
-      category: "Backend & Auth",
+      category: "Backend",
       icon: "☁️",
       color: "#fb923c",
-      items: ["Firebase Auth", "Firestore", "FCM", "In-App Purchases", "AdMob", "REST API", "Google/Apple Login", "DigitalOcean", "Postman"]
+      items: ["Firebase Auth", "Firestore", "Realtime Database", "Cloud Functions", "FCM", "App Check", "Crashlytics", ".NET", "Node.js", "REST APIs", "DigitalOcean", "Postman"]
     },
     {
-      category: "UI/UX & Design",
-      icon: "🎨",
-      color: "#f472b6",
-      items: ["Figma", "UI/UX Design", "DOTween"]
-    },
-    {
-      category: "AI-Assisted Development",
-      icon: "🤖",
-      color: "#2dd4bf",
-      items: ["Claude Code", "OpenAI Codex", "Unity MCP", "Unity CLI"]
-    },
-    {
-      category: "DevOps & Tools",
-      icon: "🛠️",
-      color: "#34d399",
-      items: ["Git", "Firebase Crashlytics", "Unity Profiler", "Android Studio", "Xcode"]
-    },
-    {
-      category: "Platforms",
+      category: "Mobile",
       icon: "📱",
       color: "#a78bfa",
-      items: ["Android", "iOS", "PC", "WebGL"]
+      items: ["Android", "iOS", "In-App Purchases", "AdMob", "Google Play Console", "App Store Connect", "Android Studio", "Xcode"]
     },
     {
-      category: "Learning",
-      icon: "📚",
-      color: "#fbbf24",
-      items: ["ASP.NET Core", "API development"]
+      category: "Tools",
+      icon: "🛠️",
+      color: "#34d399",
+      items: ["Git", "Figma", "DOTween", "Claude Code", "OpenAI Codex", "Unity MCP"]
     }
   ],
 

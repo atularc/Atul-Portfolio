@@ -66,7 +66,7 @@ function initContentBinding() {
     // Populating hero tags
     const tagContainer = document.getElementById("hero-tags-container");
     tagContainer.innerHTML = "";
-    data.profile.typedStrings.forEach(str => {
+    data.profile.heroTags.forEach(str => {
       const pill = document.createElement("span");
       pill.className = "tag-pill";
       pill.textContent = str;
@@ -208,28 +208,6 @@ function initContentBinding() {
 
     // Init thumbnail auto-rotate (no nav buttons on cards)
     initThumbSlideshows();
-
-    // Render Laboratory Marquee
-    const marqueeTrack = document.getElementById("lab-marquee-track");
-    marqueeTrack.innerHTML = "";
-    // Duplicate twice for infinite loop width matching
-    const doubleLab = [...data.laboratory, ...data.laboratory];
-    doubleLab.forEach(lab => {
-      const card = document.createElement("a");
-      card.className = "lab-card";
-      card.href = lab.link;
-      card.innerHTML = `
-        <img src="${lab.image}" alt="${lab.title}" class="lab-card-img">
-        <div class="project-engine-badge">
-          <img src="${lab.engineIcon}" alt="${lab.engine}" class="project-engine-icon">
-          <span class="project-engine-name">${lab.engine}</span>
-        </div>
-        <div class="lab-card-footer">
-          <p class="lab-card-title">${lab.title}</p>
-        </div>
-      `;
-      marqueeTrack.appendChild(card);
-    });
 
     // About Me bio
     const bioTitle = document.getElementById("bio-title");

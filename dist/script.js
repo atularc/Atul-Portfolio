@@ -130,8 +130,11 @@ function initContentBinding() {
       const isSlideshow = proj.images && proj.images.length > 0;
 
       // --- Card thumbnail area ---
+      // A project with a video always shows the YouTube thumbnail with a play button.
       let imgAreaHtml = "";
-      if (isSlideshow) {
+      if (proj.video) {
+        imgAreaHtml = buildVideoThumb(proj);
+      } else if (isSlideshow) {
         imgAreaHtml = `
           <div class="project-thumb-wrapper">
             ${proj.images.map((img, idx) => `
@@ -177,6 +180,7 @@ function initContentBinding() {
       card.innerHTML = `
         ${imgAreaHtml}
         <div class="project-info">
+          ${proj.subtitle ? `<p class="project-subtitle">${proj.subtitle}</p>` : ""}
           <h3 class="project-title">${proj.title}</h3>
           <p class="project-desc project-desc--clamp">${proj.description}</p>
           <div class="project-tags">${tagsHtml}</div>
@@ -191,6 +195,12 @@ function initContentBinding() {
 
       // Click card → open modal
       card.addEventListener("click", () => openProjectModal(proj));
+      const thumb = card.querySelector(".video-thumb");
+      if (thumb) {
+        thumb.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openProjectModal(proj); }
+        });
+      }
 
       if (proj.featured) {
         const wrapper = document.createElement("div");
@@ -860,7 +870,48 @@ function buildStoreBtns(proj) {
     html += `<a href="${proj.webglLink}" target="_blank" rel="noopener noreferrer" class="store-btn">
       <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>WebGL Demo</a>`;
   }
+  if (proj.video && proj.video.id) {
+    html += `<a href="${videoWatchUrl(proj.video.id)}" target="_blank" rel="noopener noreferrer" class="store-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>Watch on YouTube</a>`;
+  }
   return html;
+}
+
+// ─── YouTube video helpers ───────────────────────────────────────────────────
+// Thumbnails come straight from YouTube's image CDN, which also serves them for
+// unlisted videos. maxresdefault falls back to hqdefault if it is ever missing.
+function videoThumbUrl(id, size) {
+  return `https://i.ytimg.com/vi/${id}/${size || "maxresdefault"}.jpg`;
+}
+
+function videoWatchUrl(id) {
+  return `https://www.youtube.com/watch?v=${id}`;
+}
+
+function buildVideoThumb(proj) {
+  const v = proj.video;
+  return `
+    <div class="video-thumb" role="button" tabindex="0" aria-label="Play ${proj.title} video">
+      <img src="${videoThumbUrl(v.id)}" alt="${proj.title} video" class="video-thumb-img" loading="lazy"
+           onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='${videoThumbUrl(v.id, "hqdefault")}';}">
+      <span class="video-play-btn" aria-hidden="true">
+        <svg viewBox="0 0 68 48" width="68" height="48"><path class="video-play-bg" d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6C4 2.4 2.3 4.8 1.5 7.7.1 13 0 24 0 24s.1 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c2.9-.8 4.6-3.2 5.4-6.2C67.9 35 68 24 68 24s-.1-11-1.5-16.3z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+      </span>
+      ${v.duration ? `<span class="video-duration">${v.duration}</span>` : ""}
+    </div>
+  `;
+}
+
+function buildVideoEmbed(v, autoplay) {
+  const params = `rel=0&modestbranding=1&playsinline=1${autoplay ? "&autoplay=1" : ""}`;
+  return `
+    <div class="video-embed ${v.portrait ? "is-portrait" : ""}">
+      <iframe src="https://www.youtube-nocookie.com/embed/${v.id}?${params}"
+              title="Project video" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  `;
 }
 
 // ─── Card thumbnail auto-rotate (no nav buttons) ──────────────────────────────
@@ -916,11 +967,17 @@ function openProjectModal(proj) {
     `;
   }
 
+  const videoHtml = proj.video ? `<div class="modal-video">${buildVideoEmbed(proj.video, true)}</div>` : "";
+  const highlightsHtml = proj.highlights && proj.highlights.length
+    ? `<ul class="modal-highlights">${proj.highlights.map(h => `<li>${h}</li>`).join("")}</ul>`
+    : "";
+
   const overlay = document.createElement("div");
   overlay.id = "project-modal-overlay";
   overlay.innerHTML = `
     <div class="modal-box" role="dialog" aria-modal="true">
       <button class="modal-close-btn" aria-label="Close">&times;</button>
+      ${videoHtml}
       <div class="modal-layout ${hasImages ? 'modal-layout--has-gallery' : ''}">
         ${galleryHtml}
         <div class="modal-content">
@@ -932,7 +989,9 @@ function openProjectModal(proj) {
             ${proj.badge ? `<div class="project-badge" style="position:static;">${proj.badge}</div>` : ""}
           </div>
           <h2 class="modal-title">${proj.title}</h2>
+          ${proj.subtitle ? `<p class="project-subtitle">${proj.subtitle}</p>` : ""}
           <p class="modal-description">${proj.description}</p>
+          ${highlightsHtml}
           <div class="modal-tags">${allTags}</div>
           ${storeBtns ? `<div class="project-links-row modal-links">${storeBtns}</div>` : ""}
         </div>

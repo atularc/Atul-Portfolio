@@ -1779,3 +1779,102 @@ html.dark {
   }
 }
 
+
+/* ── Project videos (YouTube thumbnails + embeds) ───────────────────── */
+.video-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: #0d0d12;
+  cursor: pointer;
+}
+.video-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+.project-card:hover .video-thumb-img,
+.video-thumb:hover .video-thumb-img {
+  transform: scale(1.04);
+  filter: brightness(0.85);
+}
+.video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 40px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  transition: transform 0.2s ease;
+}
+.video-play-btn svg { width: 100%; height: 100%; }
+.video-play-bg { fill: rgba(20, 20, 28, 0.82); transition: fill 0.2s ease; }
+.project-card:hover .video-play-bg,
+.video-thumb:hover .video-play-bg,
+.video-thumb:focus-visible .video-play-bg { fill: #ff0033; }
+.project-card:hover .video-play-btn,
+.video-thumb:hover .video-play-btn { transform: translate(-50%, -50%) scale(1.08); }
+.video-thumb:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.video-duration {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-subtitle {
+  margin: 0 0 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.video-embed.is-portrait {
+  aspect-ratio: 9 / 16;
+  max-height: 72vh;
+  width: auto;
+  margin: 0 auto;
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.modal-video {
+  background: #000;
+  border-radius: 1rem 1rem 0 0;
+  overflow: hidden;
+}
+/* Close button floats over the video */
+.modal-box .modal-close-btn { position: absolute; top: 0; right: 0; float: none; }
+
+.modal-highlights {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--foreground);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.modal-highlights li { margin-bottom: 0.3rem; }
+.modal-highlights li::marker { color: var(--accent); }

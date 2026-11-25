@@ -31,8 +31,8 @@ window.portfolioData = {
       subtitle: "Android & iOS · TEC Ventures",
       description: "Live 8-player spell-based racing game built in Unity 6 with URP, Firebase and a .NET dedicated server. 10K+ downloads on Google Play.",
       highlights: [
-        "Primary developer: car physics, bot racing AI, spell system, VFX and custom shaders",
-        "Event-based .NET dedicated game server over UDP (LiteNetLib) in Docker: 90 Hz snapshot relay, checkpoint, finish and spell validation, speed and teleport checks, and bot-host failover",
+        "Primary developer: car physics, bot racing AI, spell system, clans and socials",
+        "Event-based .NET dedicated game server over UDP (LiteNetLib) on DigitalOcean: 90 Hz snapshot relay, checkpoint, finish and spell validation, speed and teleport checks, and bot-host failover",
         "Clans, social and chat systems; Firebase sign-in, matchmaking, Cloud Functions and push notifications",
         "Cut draw calls from about 900 to 300-500 to stop overheating and frame drops on phones"
       ],
@@ -53,7 +53,7 @@ window.portfolioData = {
       ],
       engine: "Unity 6",
       engineIcon: "/images/unity_logo.png",
-      tags: ["Multiplayer", ".NET Server", "UDP", "Firebase", "URP", "Shader Graph"],
+      tags: ["Multiplayer", ".NET Server", "UDP", "Firebase", "URP", "Unity 6"],
       playStore: "https://play.google.com/store/apps/details?id=com.tecventures.mysticmotors",
       appStore: "https://apps.apple.com/app/id6612030544",
       link: "https://play.google.com/store/apps/details?id=com.tecventures.mysticmotors",
@@ -228,7 +228,7 @@ window.portfolioData = {
         "Built the original clans and social system with Socket.IO and Node.js, on both the Unity and server sides.",
         "Integrated in-app purchases on Android and iOS, AdMob ads, shop offers and crate rewards.",
         "Reduced overheating and frame drops on phones: cut draw calls from about 900 to 300-500, added LODs, skipped distant and off-screen objects, replaced heavy particles, and warmed up shaders during loading to stop spell hitches.",
-        "Developed car physics, bot racing AI, the spell system, VFX and custom shaders, plus baked lighting and collision work on race maps in URP.",
+        "Developed car physics, bot racing AI, the spell system, plus baked lighting and collision work on race maps in URP.",
         "Fixed launch crashes using Crashlytics and device logs, including an iOS-only crash and a 40-second iOS login hang.",
         "Built game UI from Figma designs with DOTween, and custom Unity Editor tools for map and content work."
       ]
@@ -254,7 +254,7 @@ window.portfolioData = {
       category: "Unity",
       icon: "🎮",
       color: "#9d7cd8",
-      items: ["Unity 6", "2D/3D", "C#", "URP", "Shader Graph", "VFX", "Addressables (local & remote)", "Unity Profiler", "Editor scripting", "WebGL"]
+      items: ["Unity 6", "2D/3D", "C#", "URP", "Addressables (local & remote)", "Unity Profiler", "Editor scripting", "WebGL"]
     },
     {
       category: "Multiplayer",

@@ -29,10 +29,10 @@ window.portfolioData = {
     {
       title: "Mystic Motors",
       subtitle: "Android & iOS · TEC Ventures",
-      description: "Live 8-player spell-based racing game built in Unity 6 with URP, Firebase and a .NET dedicated server. 10K+ downloads on Google Play.",
+      description: "Live 8-player spell-based racing game built in Unity 6 with URP, Firebase and a dedicated UDP server. 10K+ downloads on Google Play.",
       highlights: [
         "Primary developer: car physics, bot racing AI, spell system, clans and socials",
-        "Event-based .NET dedicated game server over UDP (LiteNetLib) on DigitalOcean: 90 Hz snapshot relay, checkpoint, finish and spell validation, speed and teleport checks, and bot-host failover",
+        "Event-based dedicated game server over UDP (LiteNetLib) on DigitalOcean: 90 Hz snapshot relay, checkpoint, finish and spell validation, speed and teleport checks, and bot-host failover",
         "Clans, social and chat systems; Firebase sign-in, matchmaking, Cloud Functions and push notifications",
         "Cut draw calls from about 900 to 300-500 to stop overheating and frame drops on phones"
       ],
@@ -53,7 +53,7 @@ window.portfolioData = {
       ],
       engine: "Unity 6",
       engineIcon: "/images/unity_logo.png",
-      tags: ["Multiplayer", ".NET Server", "UDP", "Firebase", "URP", "Unity 6"],
+      tags: ["Multiplayer", "UDP", "Firebase", "URP", "Unity 6"],
       playStore: "https://play.google.com/store/apps/details?id=com.tecventures.mysticmotors",
       appStore: "https://apps.apple.com/app/id6612030544",
       link: "https://play.google.com/store/apps/details?id=com.tecventures.mysticmotors",
@@ -136,7 +136,7 @@ window.portfolioData = {
       description: "Flappy-style game with online seasonal and regular tournaments: players register, compete for the top score and climb a live leaderboard.",
       highlights: [
         "Wrote the whole Unity client and game logic",
-        "Sign-up, login and forgot-password flows over REST APIs (Node.js backend)",
+        "Sign-up, login and forgot-password flows over REST APIs",
         "Seasonal and regular tournaments with ranked leaderboards and player profiles",
         "Optimistic UI and leaderboard updates so players rarely wait on loading screens"
       ],
@@ -223,9 +223,9 @@ window.portfolioData = {
       timeline: "Mar 2025 – Present",
       bullets: [
         "Took Mystic Motors, a spell-based 8-car multiplayer racer, through launch on Android and iOS and 8 App Store releases, with clans, chat, a garage and cosmetics.",
-        "Delivered a .NET dedicated game server over UDP (LiteNetLib) using AI-assisted coding: 90 Hz world-snapshot relay, checkpoint, finish-order and spell validation, basic speed and teleport checks, and bots run on a host device with server failover. Connected it to the Unity client, tested it, and deployed sandbox and production on DigitalOcean.",
+        "Delivered a dedicated game server over UDP (LiteNetLib) using AI-assisted coding: 90 Hz world-snapshot relay, checkpoint, finish-order and spell validation, basic speed and teleport checks, and bots run on a host device with server failover. Connected it to the Unity client, tested it, and deployed sandbox and production on DigitalOcean.",
         "Built Firebase features: Google, Apple and guest sign-in, Firestore, Realtime Database lobbies and matchmaking, Cloud Functions, App Check, FCM notifications and Crashlytics.",
-        "Built the original clans and social system with Socket.IO and Node.js, on both the Unity and server sides.",
+        "Built the original clans and social system with Socket.IO, on both the Unity and server sides.",
         "Integrated in-app purchases on Android and iOS, AdMob ads, shop offers and crate rewards.",
         "Reduced overheating and frame drops on phones: cut draw calls from about 900 to 300-500, added LODs, skipped distant and off-screen objects, replaced heavy particles, and warmed up shaders during loading to stop spell hitches.",
         "Developed car physics, bot racing AI, the spell system, plus baked lighting and collision work on race maps in URP.",
@@ -243,7 +243,7 @@ window.portfolioData = {
         "Police Virtual HQ for a UAE government client: multiplayer 3D office with meeting rooms, Photon PUN2 avatar sync and Agora voice and video.",
         "3D Kitchen Configurator (WebGL) for a client website: kitchens and catalogue items loaded at runtime from the cloud with Addressables; users swap models and finishes live, then order.",
         "Flappy Adventure Tournaments: Unity client with sign-up, login and password reset over REST APIs, seasonal tournaments and an optimistic-UI leaderboard.",
-        "Teen Patti: built the Unity client and game logic for a real-time card game using Socket.IO with a Node.js backend; tested 10 rooms of 6 players at the same time and delivered it to the client.",
+        "Teen Patti: built the Unity client and game logic for a real-time card game using Socket.IO; tested 10 rooms of 6 players at the same time and delivered it to the client.",
         "Adventure Trip: World Wonders (Google Play, 1K+ downloads): main developer of the hidden-object gameplay and mini-games, with Firebase cloud save, FCM notifications and AppsFlyer events."
       ]
     }
@@ -266,7 +266,7 @@ window.portfolioData = {
       category: "Backend",
       icon: "☁️",
       color: "#fb923c",
-      items: ["Firebase Auth", "Firestore", "Realtime Database", "Cloud Functions", "FCM", "App Check", "Crashlytics", "AppsFlyer", ".NET", "Node.js", "REST APIs", "DigitalOcean", "Postman"]
+      items: ["Firebase Auth", "Firestore", "Realtime Database", "Cloud Functions", "FCM", "App Check", "Crashlytics", "AppsFlyer", "REST APIs", "DigitalOcean", "Postman"]
     },
     {
       category: "Mobile",
